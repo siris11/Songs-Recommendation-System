@@ -46,6 +46,23 @@ def recommend(song):
     return recommended_music_names,recommended_music_posters
 
 
+# ---------------------------------------------------------------------------------------------- #
+# --- PAGE CONFIGURATION ---
+
+st.set_page_config(page_title="Music Recommender System", page_icon=":notes:", layout="wide")
+
+# Setting background
+page_bg = """
+<style>
+[data-testid="stAppViewContainer"]{
+    background-color: #000000;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: left;
+	}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
 
 # --- LINKS FOR REQUIRED ANIMATION AND IMAGES ---
 
@@ -63,11 +80,13 @@ heading_animation = "<p style = 'font-size: 40px;'><b>Spotify Music Recommendati
 # --- HEADING SECTION ---
 
 with st.container():
-    left_col, right_col = st.columns([1, 8])
+    left_col, right_col = st.columns([1, 12])
     with left_col:
         components.html(spotify_animation_html)
     with right_col:
         st.markdown(heading_animation, unsafe_allow_html=True)
+
+
 music = pickle.load(open('data.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 

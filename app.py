@@ -46,7 +46,20 @@ def recommend(song):
 
 
 
-st.header('Spotify Music Recommendation System')
+# --- LINKS FOR REQUIRED ANIMATION AND IMAGES ---
+
+# animation html scripts
+spotify_animation_html = """
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_a6hjf7nd.json"  background="transparent"  speed="1"  style="width: 105px; height: 105px;"  loop  autoplay></lottie-player> """
+astro_animation_html = """
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_euaveaxu.json"  background="transparent"  speed="1"  style="width: 170px; height: 160px;"  loop  autoplay></lottie-player> """
+
+# Title and intro Heading
+heading_animation = "<p style = 'font-size: 60px;'><b>Spotify Music Recommendation System</b></p>"
+
+st.header(heading_animation)
 music = pickle.load(open('data.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 

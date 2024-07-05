@@ -2,6 +2,7 @@ import pickle
 import streamlit as st
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import streamlit.components.v1 as components
 from spotipy.oauth2 import SpotifyOAuth
 
 
@@ -59,7 +60,14 @@ astro_animation_html = """
 # Title and intro Heading
 heading_animation = "<p style = 'font-size: 60px;'><b>Spotify Music Recommendation System</b></p>"
 
-st.header(heading_animation)
+# --- HEADING SECTION ---
+
+with st.container():
+    left_col, right_col = st.columns([1, 9])
+    with left_col:
+        components.html(spotify_animation_html)
+    with right_col:
+        st.markdown(heading_animation, unsafe_allow_html=True)
 music = pickle.load(open('data.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 

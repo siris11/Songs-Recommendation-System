@@ -58,12 +58,12 @@ astro_animation_html = """
 <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_euaveaxu.json"  background="transparent"  speed="1"  style="width: 170px; height: 160px;"  loop  autoplay></lottie-player> """
 
 # Title and intro Heading
-heading_animation = "<p style = 'font-size: 60px;'><b>Spotify Music Recommendation System</b></p>"
+heading_animation = "<p style = 'font-size: 40px;'><b>Spotify Music Recommendation System</b></p>"
 
 # --- HEADING SECTION ---
 
 with st.container():
-    left_col, right_col = st.columns([1, 9])
+    left_col, right_col = st.columns([1, 8])
     with left_col:
         components.html(spotify_animation_html)
     with right_col:

@@ -154,7 +154,7 @@ with st.container():
         
     with right_col:
         st.image(casette, use_column_width = True)
-        st.markdown("""<p align='right' style = 'font-size: 20px;'>Thanks For Visiting ! </p>""", unsafe_allow_html=True)
+        st.markdown("""<p align='right' style = 'font-size: 20px;text-align: center'>Thanks For Visiting ! </p>""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>

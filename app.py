@@ -2,6 +2,7 @@ import pickle
 import streamlit as st
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import streamlit.components.v1 as components
 from spotipy.oauth2 import SpotifyOAuth
 
 
@@ -45,8 +46,47 @@ def recommend(song):
     return recommended_music_names,recommended_music_posters
 
 
+# ---------------------------------------------------------------------------------------------- #
+# --- PAGE CONFIGURATION ---
 
-st.header('Spotify Music Recommendation System')
+st.set_page_config(page_title="Music Recommender System", page_icon=":notes:", layout="wide")
+
+# Setting background
+page_bg = """
+<style>
+[data-testid="stAppViewContainer"]{
+    background-color: #000000;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: left;
+	}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
+
+# --- LINKS FOR REQUIRED ANIMATION AND IMAGES ---
+
+# animation html scripts
+spotify_animation_html = """
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_a6hjf7nd.json"  background="transparent"  speed="1"  style="width: 105px; height: 105px;"  loop  autoplay></lottie-player> """
+astro_animation_html = """
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_euaveaxu.json"  background="transparent"  speed="1"  style="width: 170px; height: 160px;"  loop  autoplay></lottie-player> """
+
+# Title and intro Heading
+heading_animation = "<p style = 'font-size: 60px;'><b>Spotify Music Recommendation System</b></p>"
+
+# --- HEADING SECTION ---
+
+with st.container():
+    left_col, right_col = st.columns([1, 9])
+    with left_col:
+        components.html(spotify_animation_html)
+    with right_col:
+        st.markdown(heading_animation, unsafe_allow_html=True)
+
+
 music = pickle.load(open('data.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 
@@ -93,7 +133,7 @@ casette = 'https://www.scdn.co/i/500/cassette.svg'
 st.markdown("""---""")
 
 contact_form = """
-<form action="https://formsubmit.co/sirisure10@gmail.com" method="POST">
+<form action="https://formsubmit.co/25dd3d1579f1692fe1488236b4c957b2" method="POST">
      <input type="hidden" name="_captcha" value="false">
      <input type="text" name="name" placeholder="Your name" required>
      <input type="email" name="email" placeholder="Your email" required>
@@ -114,7 +154,7 @@ with st.container():
         
     with right_col:
         st.image(casette, use_column_width = True)
-        st.markdown("""<p align='right' style = 'font-size: 20px;'>Thanks For Visiting ! </p>""", unsafe_allow_html=True)
+        st.markdown("""<p align='right' style = 'font-size: 20px;text-align: center'>Thanks For Visiting ! </p>""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
